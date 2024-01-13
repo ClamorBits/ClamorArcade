@@ -25,8 +25,11 @@ def delay(seconds):
     time.sleep(seconds)
 
 # Replaces os.system("cls")
-def clean():
+def wcl():
     os.system("cls")
+
+def ucl():
+   os.system("clear")
 
 # Typing Effect
 def write(text):
