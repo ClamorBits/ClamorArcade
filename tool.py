@@ -24,7 +24,7 @@ GuessTheNumberLogo = r"""
 def delay(seconds):
     time.sleep(seconds)
 
-# Replaces os.system("cls")
+# Clears the terminal
 def wcl():
     os.system("cls")
 
@@ -37,3 +37,7 @@ def write(text):
     sys.stdout.write(character)
     sys.stdout.flush()
     time.sleep(0.05)
+
+# Random integer (Broken)
+def ranit(start, end):
+   random.randint(int(start), int(end))

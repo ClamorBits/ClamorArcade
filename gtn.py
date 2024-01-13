@@ -1,4 +1,6 @@
 import tool as tl
+import __init__ as stp
+from __init__ import redogame
 
 tl.ucl()
 print("Welcome to the number game!")
@@ -7,6 +9,7 @@ tl.write("I will pick a number from the range you picked, and you'll try to gues
 tl.delay(2)
 tl.ucl()
 class gtnclass:
+    global repeat
     repeat = 1
     def gtngame():
         tl.write("Now, please pick a number range for me\n")
@@ -54,6 +57,11 @@ class gtnclass:
         tl.ucl()
         thenum = tl.random.randint(1, numrange)
         while transint > 0:
+            if transint == 0:
+                tl.write(f"Whoops! You ran out of number of tries! My number was {thenum}.\nBetter luck next time!")
+                tl.delay(3)
+                tl.ucl()
+                break
             print(f"{thenum}\nNumber of tries left : {transint}")
             guess = input("Your guess : ")
             guess = int(guess)
@@ -73,7 +81,7 @@ class gtnclass:
                     tl.ucl()
                     print("Quitting...")
                     tl.delay(5)
-                    
+                    redogame()
                     break
             if guess > thenum:
                 print("The number is lower than that!")
@@ -85,9 +93,7 @@ class gtnclass:
                 tl.delay(2)
                 transint = transint - 1
                 tl.ucl()
-        
-    gtngame()
-
-gtnclass()
-
-
+    while repeat == 1:
+        gtngame()
+        if repeat == 0:
+            redogame()
